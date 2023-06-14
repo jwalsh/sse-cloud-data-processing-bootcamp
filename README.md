@@ -33,7 +33,7 @@ The exercises serve as a starting point to immerse you in the world of streaming
 
 ## Exercises
 
-1. **Exercise 1: Basic Data Transformation with Apache Kafka**
+### Exercise 1: Basic Data Transformation with Apache Kafka
 
    Objective: Learn how to use Apache Kafka locally to consume and produce messages while transforming data.
 
@@ -51,7 +51,7 @@ The exercises serve as a starting point to immerse you in the world of streaming
    - Update the Python/Clojure script configurations to target the cloud Kafka instance.
    - Deploy the script in a managed environment (AWS Lambda, Google Cloud Functions, or Azure Functions) to perform the transformation.
 
-2. **Exercise 2: Stream Processing with Google Cloud Pub/Sub and Apache Beam**
+### Exercise 2: Stream Processing with Google Cloud Pub/Sub and Apache Beam
 
    Objective: Learn how to use Google Cloud Pub/Sub and Apache Beam locally to process streaming data and implement windowed processing.
 
@@ -90,7 +90,7 @@ The exercises serve as a starting point to immerse you in the world of streaming
    - Update the deployment configuration to scale and ensure fault tolerance.
    - Test the deployed API by accessing the cloud endpoint.
 
-4. **Exercise 4: Event-Driven Data Processing with AWS Lambda and Kinesis**
+### Exercise 4: Event-Driven Data Processing with AWS Lambda and Kinesis
 
    Objective: Create an event-driven data processing pipeline using AWS Kinesis and Lambda functions.
 
@@ -108,7 +108,7 @@ The exercises serve as a starting point to immerse you in the world of streaming
    - Update the data generation script to target the cloud instance of the input Kinesis stream and deploy it in a managed environment (AWS Lambda).
    - Test the deployed pipeline and observe the results in the output Kinesis stream.
 
-5. **Exercise 5: Real-Time Data Visualization with Azure Event Hubs and WebSockets**
+### Exercise 5: Real-Time Data Visualization with Azure Event Hubs and WebSockets
 
    Objective: Collect streaming data from Azure Event Hubs and visualize it in real-time using WebSockets.
 
@@ -128,3 +128,126 @@ The exercises serve as a starting point to immerse you in the world of streaming
    - Access the hosted web page in a browser to visualize the real-time streaming data from the Event Hub.
 
 These exercises are designed to run locally first and then be deployed to cloud providers. Each exercise has instructions for local setup and cloud deployment. The exercises target different aspects of streaming data and event-driven systems and enable staff engineers to build and deploy solutions on various platforms.
+
+
+### Exercise 6: Enriching Streaming Data with Google Cloud Pub/Sub and Bookstore API
+
+Objective: Learn how to consume messages from a Google Cloud Pub/Sub subscription, enrich the data using a Bookstore API, and produce enriched messages to another Pub/Sub topic.
+
+Tasks:
+
+- Set up a Google Cloud Pub/Sub topic and create two subscriptions: one for raw book data and one for enriched book data.
+- Write a Python script to simulate the streaming data, sending messages containing book IDs to the raw data subscription.
+- Set up a REST API (e.g., using Flask or FastAPI) that simulates a Bookstore API and returns book details for a given book ID.
+- Write a Python script to consume messages from the raw data subscription, call the Bookstore API to enrich the data with book details, and send the enriched messages to the enriched data subscription.
+- Test the pipeline locally using the Google Cloud Pub/Sub emulator.
+
+Cloud Deployment:
+
+- Deploy the Google Cloud Pub/Sub topic with both subscriptions in place.
+- Update the data streaming script to target the cloud instance of the raw data subscription, and deploy it (e.g., using Google Cloud Functions).
+- Deploy the Bookstore API to a cloud provider (e.g., Google App Engine).
+- Update the data enrichment script to target the cloud instances of the raw data and enriched data subscriptions and deploy it (e.g., using Google Cloud Run).
+
+### Exercise 7: Converting a Spark Data Processing Pipeline to Apache Beam 
+
+Objective: Learn how to convert an Apache Spark-based data processing pipeline to an Apache Beam pipeline.
+
+Tasks:
+
+- Set up a sample Spark pipeline that reads a data source (e.g., a CSV file), performs transformation operations (e.g., filtering, mapping), and writes the output to a destination sink (e.g., another CSV file).
+- Run the Spark data processing pipeline.
+- Develop an Apache Beam pipeline that performs similar transformation operations as the Spark pipeline, reading from and writing to the same data source and destination.
+- Test the Apache Beam pipeline using the DirectRunner.
+
+Cloud Deployment:
+
+- For the Apache Beam pipeline, update the input and output sources to cloud-based storage (e.g., Google Cloud Storage).
+- Deploy the Apache Beam pipeline using the DataflowRunner or other available runner options based on your cloud provider (e.g., Flink on AWS or Azure Data Factory).
+
+### Exercise 8: Auctions in Clojure 
+
+#### Components
+
+1. **REST API**: Create a REST API using the Clojure Ring library to handle requests related to user registration, item listing, and bid placement.
+
+2. **WebSocket Server**: Implement a WebSocket server using the Sente library (Clojure). The server will be responsible for broadcasting real-time bidding updates to all connected clients.
+
+3. **Database**: Use a database (e.g., PostgreSQL) for storing user data, auction items, and bid history. Interact with the database using the HugSQL library for Clojure.
+
+4. **Frontend**: Develop a simple web page using HTML and JavaScript, allowing users to interact with the auction system: browse items, place bids, and view the highest bid in real-time via WebSockets.
+
+#### Implementation Steps
+
+1. Develop the REST API using the Ring library. Create endpoints for user registration (sign up, log in), listing auction items, adding new items, and submitting bids on items.
+
+2. Create the WebSocket server with the Sente library. The server should handle bid updates and broadcast new highest bids to all connected clients in real-time.
+
+3. Set up the database and use HugSQL to define and manage SQL queries for data manipulation. Design the schema with tables for users, items, and bids.
+
+4. Develop the simple web page that interacts with the REST API for user registration, item listing, and bid placement. Use JavaScript to connect to the WebSocket server and listen for bid updates.
+
+5. Test the auction system locally, verifying that users can register, browse items, submit bids, and receive real-time highest bid updates.
+
+#### Deployment
+
+1. Deploy the REST API and WebSocket server using a cloud PaaS (e.g., Heroku, Google App Engine, or AWS Elastic Beanstalk). Use environment variables for configuration, such as database connection settings.
+
+2. Configure the database to run on a managed service provided by your cloud platform (e.g., Amazon RDS, Google Cloud SQL, or Azure Database).
+
+3. Host the frontend on a web hosting service like GitHub Pages or Google Cloud Storage.
+
+By following this outline, you can build a real-world auction system using Clojure, with REST API and WebSocket components to provide a seamless and real-time interactive bidding experience for users.
+
+# Resources 
+
+## Relational Algebra
+
+1. **Books**
+
+   - "An Introduction to Database Systems" by C. J. Date
+   - "Database System Concepts" by Avi Silberschatz, Henry F. Korth, and S. Sudarshan
+
+2. **Online Courses**
+
+   - [Relational Algebra in Database Management Systems - Udemy](https://www.udemy.com/course/relational-algebra-in-database-management-systems/)
+   - [Introduction to Relational Algebra - Khan Academy](https://www.khanacademy.org/computing/computer-science/algorithms/sql/p/databases)
+
+3. **Selected Articles and Guides**
+
+   - [Relational Algebra - GeeksforGeeks](https://www.geeksforgeeks.org/relational-algebra-dbms/)
+   - [A Beginner's Guide to the Relational Algebra - Cal Poly Computer Science](https://users.csc.calpoly.edu/~dekhtyar/345-Fall2010/lectures/lec02.pdf)
+
+## Streaming
+
+1. **Books**
+
+   - "Streaming Systems" by Tyler Akidau, Slava Chernyak, and Reuven Lax
+   - "Kafka: The Definitive Guide" by Neha Narkhede, Gwen Shapira, and Todd Palino
+
+2. **Online Courses**
+
+   - [Stream Processing with Apache Kafka - Confluent](https://www.confluent.io/stream-processing-apache-kafka)
+   - [Streaming Analytics on Google Cloud - Coursera](https://www.coursera.org/specializations/streaming-analytics-google-cloud)
+
+3. **Selected Articles and Guides**
+
+   - [Introduction to Stream Processing - Confluent](https://www.confluent.io/intro-to-stream-processing/)
+   - [Streaming 101: An Introduction to Streaming Data and Stream Processing - O'Reilly](https://www.oreilly.com/data/free/files/streaming-data.pdf)
+
+## Analytics
+
+1. **Books**
+
+   - "Python for Data Analysis" by Wes McKinney
+   - "Data Science for Business" by Foster Provost and Tom Fawcett
+
+2. **Online Courses**
+
+   - [Data Science and Machine Learning Bootcamp with R - Udemy](https://www.udemy.com/course/data-science-and-machine-learning-bootcamp-with-r/)
+   - [Data Analysis and Visualization with Python - University of Michigan (Coursera)](https://www.coursera.org/learn/data-analysis-with-python)
+
+3. **Selected Articles and Guides**
+
+   - [A Comprehensive Guide to Data Exploration - Analytics Vidhya](https://www.analyticsvidhya.com/blog/2016/01/guide-data-exploration/)
+   - [The 7 Steps of Exploratory Data Analysis - Towards Data Science](https://towardsdatascience.com/the-7-steps-of-exploratory-data-analysis-87e7c34d911b)
