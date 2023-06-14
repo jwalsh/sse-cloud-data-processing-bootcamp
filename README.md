@@ -336,6 +336,43 @@ Tasks:
 
 Real-world example: A multinational company wants to create a pipeline for training and deploying language models that can process and analyze textual data in Dutch, Spanish, and English at an entity level, such as per document or user. They choose to use Apache Beam for its flexibility and scalability in processing multilingual and per-entity data and automate the end-to-end pipeline, including deploying the trained models for serving predictions.
 
+### Exercise 16: Predicting Incomes by Education Level with Apache Beam
+
+Objective: Develop an Apache Beam pipeline to predict incomes by education level, leveraging per-entity model training for per education level model creation and updating.
+
+Tasks:
+
+1. Load and clean data from a source (e.g., a CSV file containing information on individuals' incomes, education levels, and other demographic data) using an Apache Beam pipeline.
+
+2. Preprocess the data (e.g., one-hot encoding categorical features, normalizing continuous features).
+
+3. Group the cleaned data records by education level and create a separate dataset for each education level entity.
+
+4. Train income prediction models for each education level entity (e.g., using scikit-learn, TensorFlow, or PyTorch), and evaluate their performances using suitable metrics (e.g., mean squared error, R-squared).
+
+5. Serialize and save the trained models with metadata specifying the education level entity details in a model registry (e.g., MLflow Model Registry, TensorFlow Model Registry, or an object storage service like Amazon S3).
+
+6. Test the pipeline locally using the DirectRunner.
+
+DOT File Representation:
+
+```
+digraph G {
+    rankdir=LR;
+    a [label = "Load Data"]
+    b [label = "Clean Data"]
+    c [label = "Group Per Education Level"]
+    d [label = "Train Models Per Education Level"]
+    e [label = "Save Models"]
+
+    a -> b -> c -> d -> e;
+}
+```
+
+The DOT file representation illustrates the flow of the pipeline steps from loading data through to saving the trained models. The jobs include loading and cleaning the data, grouping by education level, training income prediction models per education level, and finally saving the trained models.
+
+By completing this exercise, engineers will learn how to create an Apache Beam pipeline for processing and grouping data by education level entities. They will gain experience in training machine learning models per entity, in this case, education level, and deploying the models in a registry. This knowledge will equip them with the skills to tackle similar data processing challenges and develop effective and efficient solutions for real-world problems.
+
 # Resources 
 
 ## Relational Algebra
