@@ -310,6 +310,32 @@ Tasks:
 
 Real-world example: A company wants to track and monitor its development team's productivity over time by analyzing data from various sources, including GitHub, Jira, and Slack. By leveraging Apache Beam, side inputs, and schemas, the company can create an efficient, flexible, and scalable pipeline that delivers valuable insights into their team's performance and productivity.
 
+### Exercise 15: Creating a Multilingual Machine Learning Pipeline with Apache Beam
+
+Objective: Develop an end-to-end machine learning pipeline using Apache Beam to train and deploy language models for Dutch, Spanish, and English, with a focus on updating the models per entity (e.g., per document, user, or topic).
+
+Tasks:
+
+1. Extract per entity offline data for training and evaluation by developing an Apache Beam pipeline that reads multilingual data with entity-level information from various sources (e.g., CSV files, databases) and preprocesses it (e.g., tokenization, removing stop words).
+
+2. Split data by language, ensuring you have separate datasets for Dutch, Spanish, and English.
+
+3. Train language models for Dutch, Spanish, and English on the respective processed datasets (e.g., using TensorFlow, PyTorch, or Hugging Face Transformers), emphasizing per-entity updates (e.g., fine-tuning the model for specific entities like documents, users, or topics).
+
+4. Evaluate the performance of each language model using suitable metrics (e.g., perplexity, F1 score) and record the evaluations for future comparison.
+
+5. Serialize and save each trained language model to a model registry (e.g., MLflow Model Registry, TensorFlow Model Registry, or an object storage service like Amazon S3) along with metadata specifying the language and the entity type.
+
+6. Create a CI/CD pipeline to automate the steps from multilingual data extraction to model deployment for each language (e.g., using Jenkins, GitLab CI/CD, or GitHub Actions).
+
+7. Implement a model serving service (e.g., TensorFlow Serving, MLflow Model Serving, or a custom REST API) that loads the respective language models and serves predictions on new per-entity data.
+
+8. Deploy the model serving service on a suitable platform (e.g., Google Cloud AI Platform, Amazon SageMaker, or Azure Machine Learning).
+
+9. Test the deployed multilingual models by making requests to the serving service with new per-entity data in Dutch, Spanish, and English, examining the predictions.
+
+Real-world example: A multinational company wants to create a pipeline for training and deploying language models that can process and analyze textual data in Dutch, Spanish, and English at an entity level, such as per document or user. They choose to use Apache Beam for its flexibility and scalability in processing multilingual and per-entity data and automate the end-to-end pipeline, including deploying the trained models for serving predictions.
+
 # Resources 
 
 ## Relational Algebra
