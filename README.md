@@ -2,12 +2,6 @@
 
 Welcome to the SSE Cloud Bootcamp targeted to staff engineers! This bootcamp aims to provide a foundation in streaming data and eventing systems so that you can better understand, architect, and develop solutions in this domain. Please visit [https://github.com/jwalsh/sse-cloud-bootcamp](https://github.com/jwalsh/sse-cloud-bootcamp) for the latest updates and information.
 
-## Historical Context: Relational Algebra
-
-Relational Algebra forms the basis of relational databases, which have been the backbone of traditional data storage and management systems since the 1970s. Proposed by Edgar F. Codd, relational algebra is a formal theoretical foundation for manipulating data using tuples, attributes, and relations. It introduces operations like selection, projection, and join that allow developers and analysts to interact with structured data sets.
-
-Over time, relational databases have evolved to adapt to the growing data needs and provide greater efficiency, scalability, and robustness. However, as our systems generate enormous amounts of streaming data from IoT devices, social media, and other real-time sources, the need for event-driven architectures and streaming data systems has become more critical than ever.
-
 ## Goal of the Bootcamp
 
 This bootcamp is designed for staff engineers to:
@@ -235,6 +229,87 @@ Cloud Deployment:
 - Set up a managed InfluxDB instance on a cloud provider (e.g., using InfluxDB Cloud) and create an InfluxDB database.
 - Deploy the Apache Beam pipeline to cloud providers like Google Cloud Dataflow, Apache Flink on Amazon EMR, or Azure Stream Analytics, ensuring it reads time series data from the managed Apache Cassandra service and writes detected anomalies to the managed InfluxDB instance.
 
+
+### Exercise 11: Exploring Apache Beam Runners
+
+Objective: Gain a deep understanding of Apache Beam runners and learn how to switch between different runners for executing Beam pipelines.
+
+Tasks:
+
+1. Create an Apache Beam pipeline that reads data from a source (e.g., a CSV file), transforms the data (e.g., applying filters, mapping, and aggregations), and writes the results to an output sink (e.g., another CSV file or a database).
+
+2. Test the pipeline locally using the DirectRunner.
+
+3. Explore other available runners such as DataflowRunner (Google Cloud Dataflow), FlinkRunner (Apache Flink), SamzaRunner (Apache Samza), and SparkRunner (Apache Spark).
+
+4. Set up and configure the appropriate environments for each chosen runner (e.g., a Flink or Spark cluster, a Google Cloud Dataflow project).
+
+5. Update the Apache Beam pipeline to run with each chosen runner and validate that the pipeline behaves consistently across different runners (i.e., produces the same results).
+
+Real-world example: An organization processing log data wants to migrate its data processing pipelines from running on their current batch processing system to a more flexible and scalable streaming platform. They want to test and compare the performance of different runners before making a final decision.
+
+### Exercise 12: Working with Side Inputs in Apache Beam
+
+Objective: Learn how to use side inputs in Apache Beam to perform operations that require additional secondary input data.
+
+Tasks:
+
+1. Create an Apache Beam pipeline that reads primary data from a source (e.g., a CSV file containing user data).
+
+2. Prepare a secondary dataset (e.g., a CSV file containing user scores) and read it into a PCollection.
+
+3. Use side inputs in a ParDo or FlatMap transform to perform operations that require the secondary dataset (e.g., join user data with their corresponding user scores).
+
+4. Write the combined output to a suitable sink (e.g., another CSV file or a database).
+
+5. Test the pipeline locally using the DirectRunner.
+
+Real-world example: A company has two datasets stored in separate CSV files: one contains customer profile information, and the other contains customers' purchase history. The company wants to combine these datasets to derive insights into their customer base and tailor their marketing efforts.
+
+### Exercise 13: Leveraging Schemas in Apache Beam
+
+Objective: Learn how to use schemas in Apache Beam to define the structure of the data, making it easier to work with structured data sources and transformations.
+
+Tasks:
+
+1. Create an Apache Beam pipeline that reads structured data from a source (e.g., a CSV file containing user data with columns such as user ID, name, and age).
+
+2. Define a schema for the structured data using Python NamedTuple, Java POJO, or Avro schema.
+
+3. Modify the pipeline's source to read data with the defined schema, allowing Beam to automatically project the data onto the schema.
+
+4. Perform a transformation (e.g., filtering, mapping) on the data using the schema fields.
+
+5. Write the transformed data to a suitable sink (e.g., another CSV file, a database) while preserving the schema.
+
+6. Test the pipeline locally using the DirectRunner.
+
+Real-world example: An organization obtains a dataset of customer reviews from an e-commerce website. The dataset includes information such as user ID, product ID, rating, and review text. Using schemas, the organization wants to apply various transformations to the data before ingesting it into their data warehouse for further analysis.
+
+### Exercise 14: Monitoring Developer Productivity with Apache Beam
+
+Objective: Develop an end-to-end data processing pipeline using Apache Beam that combines different runners, side inputs, and schemas to monitor developer productivity metrics using data from various sources (e.g., GitHub, Jira, and Slack).
+
+Tasks:
+
+1. Set up data sources to collect data from GitHub (e.g., commits, pull requests), Jira (e.g., issue creation and resolution times), and Slack (e.g., message counts, reactions).
+
+2. Define schemas for the data collected from each source.
+
+3. Create an Apache Beam pipeline to read data from each source using the defined schemas.
+
+4. Use side inputs to combine data from different sources in the pipeline to derive developer productivity metrics (e.g., commits per day, average time to resolve issues, active communication in Slack).
+
+5. Transform and aggregate the combined data, generating summaries of developer productivity metrics for a given time frame.
+
+6. Write the summary output to a suitable sink (e.g., a CSV file or a database).
+
+7. Test the pipeline locally using the DirectRunner.
+
+8. Deploy and run the pipeline using different runners (e.g., DataflowRunner, FlinkRunner, SparkRunner) and compare their performance.
+
+Real-world example: A company wants to track and monitor its development team's productivity over time by analyzing data from various sources, including GitHub, Jira, and Slack. By leveraging Apache Beam, side inputs, and schemas, the company can create an efficient, flexible, and scalable pipeline that delivers valuable insights into their team's performance and productivity.
+
 # Resources 
 
 ## Relational Algebra
@@ -287,3 +362,11 @@ Cloud Deployment:
 
    - [A Comprehensive Guide to Data Exploration - Analytics Vidhya](https://www.analyticsvidhya.com/blog/2016/01/guide-data-exploration/)
    - [The 7 Steps of Exploratory Data Analysis - Towards Data Science](https://towardsdatascience.com/the-7-steps-of-exploratory-data-analysis-87e7c34d911b)
+# Historical Context
+
+## Relational Algebra
+
+Relational Algebra forms the basis of relational databases, which have been the backbone of traditional data storage and management systems since the 1970s. Proposed by Edgar F. Codd, relational algebra is a formal theoretical foundation for manipulating data using tuples, attributes, and relations. It introduces operations like selection, projection, and join that allow developers and analysts to interact with structured data sets.
+
+Over time, relational databases have evolved to adapt to the growing data needs and provide greater efficiency, scalability, and robustness. However, as our systems generate enormous amounts of streaming data from IoT devices, social media, and other real-time sources, the need for event-driven architectures and streaming data systems has become more critical than ever.
+
