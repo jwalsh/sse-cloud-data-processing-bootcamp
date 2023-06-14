@@ -199,6 +199,42 @@ Cloud Deployment:
 
 By following this outline, you can build a real-world auction system using Clojure, with REST API and WebSocket components to provide a seamless and real-time interactive bidding experience for users.
 
+### Exercise 9: Sentiment Analysis with Apache Flink and Twitter API
+
+Objective: Build an Apache Flink pipeline that consumes tweets from the Twitter API, performs sentiment analysis on the tweet text, and produces the sentiment score to an output sink (e.g., file, Kafka, console).
+
+Tasks:
+
+- Set up a Twitter Developer account and create an app to obtain API keys and access tokens.
+- Develop a Python or Java script that connects to the Twitter API and consumes tweets based on keywords or hashtags using the Tweepy library (Python) or Twitter4J library (Java).
+- Write an Apache Flink pipeline that reads the tweets from the Twitter API script, extracts the tweet text, and performs sentiment analysis using the TextBlob library (Python) or Stanford CoreNLP (Java).
+- Produce the sentiment score (e.g., positive, negative, neutral) for each tweet to an output sink (e.g., file, Kafka, console).
+- Run the Flink pipeline using the local Flink cluster.
+
+Cloud Deployment:
+
+- Set up a managed Apache Flink service on a cloud provider (e.g., Amazon Kinesis Data Analytics, Google Cloud Dataflow, or Azure Stream Analytics).
+- Update the Flink pipeline code to read tweets from a cloud-based message broker (e.g., Kafka, Google Cloud Pub/Sub) instead of directly from the Twitter API script.
+- Deploy the Twitter API script as a separate service (e.g., AWS Lambda, Google Cloud Functions, Azure Functions) to publish tweets to the message broker.
+- Run the Flink pipeline on the managed service, consuming tweets from the message broker, performing sentiment analysis, and writing the results to a cloud-based sink.
+
+### Exercise 10: Anomaly Detection with Apache Cassandra and InfluxDB
+
+Objective: Detect anomalies in time series data stored in Apache Cassandra and write the detected anomalies to InfluxDB.
+
+Tasks:
+
+- Set up an Apache Cassandra cluster locally or in the cloud (e.g., using the managed service provided by Aiven for Apache Cassandra).
+- Create a table in Apache Cassandra to store time series data, including columns for timestamp, metric values, and metadata (e.g., device ID, location).
+- Use a Python or Java script to generate synthetic time series data with different patterns (e.g., sudden spikes or drops, cyclic trends), and persist the data to the Cassandra table.
+- Develop an Apache Beam pipeline that reads time series data from the Cassandra table, detects anomalies using an anomaly detection algorithm (e.g., using the S-H-ESD method, LOF-based outliers, or IQR method), and writes the detected anomalies to an InfluxDB instance.
+- Run the Apache Beam pipeline with the appropriate runner (e.g., DirectRunner for local development, DataflowRunner for cloud deployment).
+
+Cloud Deployment:
+
+- Set up a managed InfluxDB instance on a cloud provider (e.g., using InfluxDB Cloud) and create an InfluxDB database.
+- Deploy the Apache Beam pipeline to cloud providers like Google Cloud Dataflow, Apache Flink on Amazon EMR, or Azure Stream Analytics, ensuring it reads time series data from the managed Apache Cassandra service and writes detected anomalies to the managed InfluxDB instance.
+
 # Resources 
 
 ## Relational Algebra
