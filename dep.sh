@@ -48,6 +48,9 @@ export PYTHON_VERSION=<python_version>
 # Terraform
 export TERRAFORM_VERSION=<terraform_version>
 
+# Clojure
+export CLOJURE_VERSION=<clojure_version>
+
 # other environment-specific variables
 EOL
 
@@ -75,6 +78,7 @@ asdf plugin-add kubectl
 asdf plugin-add kafka
 asdf plugin-add python
 asdf plugin-add terraform
+asdf plugin-add clojure
 
 echo "Installing AWS CLI..."
 asdf install awscli $AWS_CLI_VERSION
@@ -100,5 +104,14 @@ python3 -m pip install apache-beam[gcp]
 echo "Installing Terraform..."
 asdf install terraform $TERRAFORM_VERSION
 asdf global terraform $TERRAFORM_VERSION
+
+# Install Clojure
+echo "Installing Clojure..."
+asdf install clojure $CLOJURE_VERSION
+asdf global clojure $CLOJURE_VERSION
+
+# Install virtualenv and Jupyter
+echo "Installing virtualenv and Jupyter for Python exercises..."
+python3 -m pip install virtualenv jupyter
 
 echo "Done."
