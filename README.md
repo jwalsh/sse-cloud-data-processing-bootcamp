@@ -1,6 +1,5 @@
-# SSE Cloud Bootcamp
-
-Welcome to the SSE Cloud Bootcamp targeted to staff engineers! This bootcamp aims to provide a foundation in streaming data and eventing systems so that you can better understand, architect, and develop solutions in this domain. Please visit [https://github.com/jwalsh/sse-cloud-bootcamp](https://github.com/jwalsh/sse-cloud-bootcamp) for the latest updates and information.
+# SSE Cloud Data Processing Bootcamp
+Welcome to the SSE Cloud Data Processing Bootcamp! This bootcamp aims to provide a foundation in streaming data, event-driven systems, and data processing pipelines so that you can better understand, architect, and develop solutions in this domain using Apache Beam and various cloud technologies. Please visit https://github.com/jwalsh/sse-cloud-data-processing-bootcamp for the latest updates and information.
 
 ## Goal of the Bootcamp
 
@@ -356,7 +355,7 @@ Tasks:
 
 DOT File Representation:
 
-```
+```dot
 digraph G {
     rankdir=LR;
     a [label = "Load Data"]
